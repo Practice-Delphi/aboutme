@@ -42,6 +42,14 @@ class Clock extends Component {
                     </div>
                 </div>
                 <button className="btn btn-primary Clock-button">Registration</button>
+                <div className="Clock-price">
+                    <div>
+                        <b>Price:</b> $0.20 = 1 GGC
+                    </div>
+                    <div>
+                        <b>Minimal purchase:</b> 500 GGC
+                    </div>
+                </div>
             </div>
         );
     }

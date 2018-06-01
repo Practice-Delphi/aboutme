@@ -1,10 +1,14 @@
 .Firsthome {
-    padding: 5% 10% 0% 10%;
+    padding: 60px 15px 0px 15px;
+    max-width: 1110px;
+    margin: auto;
     display: flex;
     flex-flow: row nowrap;
+    justify-content: space-between;    
 }
 .Firsthome-leftbar {
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    width: 38%;
     display: flex;
     flex-flow: column nowrap;
 }
@@ -30,7 +34,8 @@
 }
 
 .Firsthome-rightbar {
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    width: 50%;
 }
 
 .Firsthome-rightbartitle {
@@ -105,8 +110,14 @@
 
 @media (max-width: 500px) {
     .Firsthome {
-        padding: 5px 10px 0px 10px;
-        flex-flow: row wrap;
+        padding: 60px 15px 0px 15px;
+        flex-flow: column nowrap;
+    }
+    .Firsthome-rightbar {
+        width: 100%;
+    }
+    .Firsthome-leftbar {
+        width: 100%;
     }
 }
 
@@ -124,7 +135,5 @@
 }
 
 @media (min-width: 1441px) {
-    .Firsthome {
-        padding: 5% 15% 0% 15%;
-    }
+    
   }

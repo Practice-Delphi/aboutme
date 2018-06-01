@@ -1,7 +1,6 @@
 .Clock {
     padding: 25px;
     height: 100%;
-    margin-right: 40px;
 }
 
 .Clock-title {
@@ -11,10 +10,10 @@
 
 .Clock-container {
     display: flex;
+    flex-flow: row wrap;
 }
 
 .Clock-time {
-    flex-grow: 1;
     padding: 5px 0px;
     margin-right: 17px;
     width: 56px;
@@ -24,7 +23,7 @@
     border-style: solid;
     border-color: black;
     border-image: initial;
-    font-size: 23pt;
+    font-size: 23px;
     font-weight: bold;
 }
 
@@ -32,4 +31,13 @@
     margin-top: 25px;
     font-size: 20px;
     padding: 10px 25px;
+}
+
+.Clock-price {
+    width: 100%;
+    clear: both;
+    font-size: 18px;
+    background: rgb(240, 240, 240, 0.5);
+    padding: 15px 25px;
+    text-align: left;
 }
