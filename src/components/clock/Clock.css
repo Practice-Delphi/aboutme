@@ -1,0 +1,35 @@
+.Clock {
+    padding: 25px;
+    height: 100%;
+    margin-right: 40px;
+}
+
+.Clock-title {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.Clock-container {
+    display: flex;
+}
+
+.Clock-time {
+    flex-grow: 1;
+    padding: 5px 0px;
+    margin-right: 17px;
+    width: 56px;
+    text-align: center;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    font-size: 23pt;
+    font-weight: bold;
+}
+
+.Clock-button {
+    margin-top: 25px;
+    font-size: 20px;
+    padding: 10px 25px;
+}

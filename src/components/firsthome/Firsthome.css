@@ -1,0 +1,130 @@
+.Firsthome {
+    padding: 5% 10% 0% 10%;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.Firsthome-leftbar {
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Firsthome-status-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.Firsthome-status {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 0px 0px;
+}
+
+.Firsthome-status > img {
+    width: 32px;
+    height: 32px;
+}
+.Firsthome-status > h3 {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.Firsthome-rightbar {
+    flex-grow: 1;
+}
+
+.Firsthome-rightbartitle {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Firsthome-rightbartitle > h1 {
+    font-weight: bold;
+    font-size: 55px;
+}
+
+.Firsthome-rightbartitle > h2 {
+    font-weight: normal;
+    padding-top: 15px;
+    font-size: 25px;
+}
+
+.Firsthome-title {
+    color: #D0011B;
+}
+
+.Firtshome-links {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.Firtshome-links > a > img {
+    width: 24px;
+    height: 24px;
+}
+
+.Firtshome-links > a {
+    box-shadow: none;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    text-decoration: none;
+    padding: 0px 12px;
+}
+
+.Firtshome-videos {
+    margin-top: 40px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.Firtshome-videos > div > img {
+    height: 120px;
+    width: auto;
+}
+
+.Firsthome-documents {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+
+.Firsthome-documents > div {
+    align-self: flex-end;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Firsthome-documents > div > button {
+    margin-top: 15px;
+    flex-grow: 1;
+}
+
+@media (max-width: 500px) {
+    .Firsthome {
+        padding: 5px 10px 0px 10px;
+        flex-flow: row wrap;
+    }
+}
+
+@media (max-width: 1023px) {
+    .Firtshome-videos {
+        flex-flow: column nowrap;
+    }
+    .Firtshome-videos > div > img {
+        height: auto;
+        width: 100%;
+    }
+    .Firsthome-documents > div {
+        align-self: stretch;
+    }
+}
+
+@media (min-width: 1441px) {
+    .Firsthome {
+        padding: 5% 15% 0% 15%;
+    }
+  }
