@@ -11,7 +11,7 @@ class Clock extends Component {
             targetDate: new Date(2018, 5, 8, 12, 0, 0),
             currentDate: new Date()
         }
-        let timer;
+        let timer = null;
         let tick = () => {
             this.setState({ currentDate: new Date() });
             timer = setTimeout(tick, 1000);
@@ -21,27 +21,29 @@ class Clock extends Component {
 
     render() {
         const date = new Date(this.state.targetDate.getTime() - this.state.currentDate.getTime());
-        console.log(date);
+        // console.log(date);
         return (
-            <div className="card Clock">
-                <div className="Clock-title">
-                    Clock
+            <div className="Clock">
+                <div className="Clock-primary">
+                    <div className="Clock-title">
+                        Clock
+                    </div>
+                    <div className="Clock-container">
+                        <div className="Clock-time">
+                            {date.getDay()}д
+                    </div>
+                        <div className="Clock-time">
+                            {date.getHours()}ч
+                    </div>
+                        <div className="Clock-time">
+                            {date.getMinutes()}м
+                    </div>
+                        <div className="Clock-time">
+                            {date.getSeconds()}с
+                    </div>
+                    </div>
+                    <button className="btn btn-primary Clock-button">Registration</button>
                 </div>
-                <div className="Clock-container">
-                    <div className="Clock-time">
-                        {date.getDay()}д
-                    </div>
-                    <div className="Clock-time">
-                        {date.getHours()}ч
-                    </div>
-                    <div className="Clock-time">
-                        {date.getMinutes()}м
-                    </div>
-                    <div className="Clock-time">
-                        {date.getSeconds()}с
-                    </div>
-                </div>
-                <button className="btn btn-primary Clock-button">Registration</button>
                 <div className="Clock-price">
                     <div>
                         <b>Price:</b> $0.20 = 1 GGC

@@ -14,8 +14,21 @@ import { runTestAction } from '../actions/testaction';
 import Home from './home/Home';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      langselect: false
+    }
+  }
   componentDidMount() {
     this.props.runTest("TestPassed");
+  }
+  changeLangSelect() {
+    if (this.state.langselect) {
+      this.setState({ langselect: false });
+    } else {
+      this.setState({ langselect: true });
+    }
   }
   render() {
     return (
@@ -32,12 +45,32 @@ class App extends Component {
               <Link className='btn btn-outline-light App-link' to={'/registration'}>Link3</Link>
               <Link className='btn btn-outline-light App-link' to={'/registration'}>Link4</Link>
               <Link className='btn btn-outline-light App-link' to={'/registration'}>Link5</Link>
-              <Link className='btn btn-outline-light App-link' to={'/registration'}>Link6</Link>
+              <div className='btn btn-outline-light App-lang-select-button' onClick={this.changeLangSelect.bind(this)}>Lang
+                {((select) => {
+                  if (select) {
+                    return (
+                      <div className="App-lang-select" >
+                        <div className="App-lang-option">
+                          Lang 1
+                        </div>
+                        <div className="App-lang-option">
+                          Lang 2
+                        </div>
+                        <div className="App-lang-option">
+                          Lang 3
+                        </div>
+                      </div>
+                    )
+                  } else {
+                    return null;
+                  }
+                })(this.state.langselect)}
+              </div>
               <Link className='btn btn-outline-light App-link' to={'/registration'}>Log in</Link>
               <Link className='btn btn-outline-light App-link' to={'/registration'}>Sign in</Link>
             </nav>
           </header>
-          <Route exact={true} path={'/'} component={ Home } />
+          <Route exact={true} path={'/'} component={Home} />
           <Route exact={true} path={'/profile'} render={() => (<h1>This is Profile Page</h1>)} />
           <Route exact={true} path={'/profile/:id'} render={({ match }) => (<h1>This is Profile Page of {match.params.id} </h1>)} />
           <Route exact={true} path={'/photos'} render={() => (<h1>This is Photos Page</h1>)} />
