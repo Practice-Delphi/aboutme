@@ -1,0 +1,17 @@
+.Page{
+    
+    
+    margin-top: 60px;
+    margin-right: 60px;
+    margin-bottom: 60px;
+}
+.Ourpages{
+    background-color: powderblue;
+    width: 99%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.Imagine{
+    width: 100px;
+}

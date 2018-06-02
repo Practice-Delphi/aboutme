@@ -6,13 +6,19 @@ import { connect } from 'react-redux';
 
 //Import components
 import Firsthome from '../firsthome/Firsthome';
+import Ourpages from '../ourpages/Ourpages';
+import Quote from '../quote/Quote';
 
 class Home extends Component {
   componentDidMount() {
   }
   render() {
     return (
+      <div>
      <Firsthome />
+     <Ourpages />
+     <Quote />
+     </div>
     );
   }
 }
