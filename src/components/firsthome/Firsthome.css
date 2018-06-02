@@ -100,7 +100,6 @@
     color: rgb(0, 0, 0);
 }
 
-
 .Firtshome-videos {
     margin-top: 40px;
     display: flex;
@@ -111,9 +110,11 @@
     margin-right: 25px;
     cursor: pointer;
 }
+
 .Firtshome-videos > div:hover {
     opacity: 0.8;
 }
+
 .Firtshome-videos > div > img {
     height: 120px;
     width: auto;

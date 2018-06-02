@@ -42,7 +42,7 @@ class Clock extends Component {
                             {date.getSeconds()}с
                     </div>
                     </div>
-                    <button className="btn btn-primary Clock-button">Registration</button>
+                    <a href="/account/register" className="btn btn-primary Clock-button">Registration</a>
                 </div>
                 <div className="Clock-price">
                     <div>
