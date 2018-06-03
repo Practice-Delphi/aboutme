@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import './Login.css';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
+
+import { login, runDelete } from '../../actions/loginaction';
+
+import { withRouter } from 'react-router-dom';
 
 //Import components
 
@@ -17,6 +22,7 @@ class Login extends Component {
         this.changeEmail = this.changeEmail.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.submit = this.submit.bind(this);
+        this.props.deleteData();
     }
     changeEmail(event) {
         this.setState({ email: event.target.value });
@@ -25,7 +31,16 @@ class Login extends Component {
         this.setState({ password: event.target.value });
     }
     submit() {
-        alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email} \n Password: ${this.state.password}`);
+        this.props.login(this.state.email, this.state.password);
+        // alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email} \n Password: ${this.state.password}`);
+    }
+    componentDidUpdate() {
+
+        if (this.props.userData.user) {
+            this.props.history.push("/account");
+            this.props.history.goForward();
+            console.log(this.props.history);
+        }
     }
     render() {
         return (
@@ -54,11 +69,25 @@ class Login extends Component {
     }
 }
 
+Login.propTypes = {
+    login: PropTypes.func,
+    history: PropTypes.object,
+    userData: PropTypes.object,
+    deleteData: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    userData: state.userData,
+    tokenData: state.tokenData,
+    history: state.historyData,
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators
+    login: (email, password) => { dispatch(login(email, password)) },
+    deleteData: () => { dispatch(runDelete())}
 });
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -43,6 +43,9 @@ class Home extends Component {
       }
     }
   }
+  componentWillUnmount() {
+    window.onscroll = () => {};
+  }
   render() {
     return (
       <div>
@@ -58,7 +61,7 @@ class Home extends Component {
             <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link4</Link>
             <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link5</Link>
             <Langselect />
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Log in</Link>
+            <Link className='btn btn-outline-light Home-link' to={'/account/login'}>Log in</Link>
             <Link className='btn btn-outline-light Home-link' to={'/account/register'}>Sign in</Link>
           </nav>
         </header>

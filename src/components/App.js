@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import './App.css';
 
 // import Routing tools
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -12,34 +13,23 @@ import { runTestAction } from '../actions/testaction';
 //imports component
 import Home from './home/Home';
 import Account from './account/Account';
+import { addHistory } from '../actions/historyaction';
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state= {
+      history: createBrowserHistory()
+    }
   }
   componentDidMount() {
     this.props.runTest("TestPassed");
   }
   render() {
+    this.props.addHistory(this.state.history);
     return (
-      <Router>
+      <Router history={this.state.history}>
         <div className="App">
-          {/* <header className="App-header">
-            <nav className="App-navbar">
-              <div className="App-brand">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1 className="App-title">Site Title</h1>
-              </div>
-              <Link className='btn btn-outline-light App-link' to={'/registration'}>Link1</Link>
-              <Link className='btn btn-outline-light App-link' to={'/registration'}>Link2</Link>
-              <Link className='btn btn-outline-light App-link' to={'/registration'}>Link3</Link>
-              <Link className='btn btn-outline-light App-link' to={'/registration'}>Link4</Link>
-              <Link className='btn btn-outline-light App-link' to={'/registration'}>Link5</Link>
-              <Langselect/>
-              <Link className='btn btn-outline-light App-link' to={'/registration'}>Log in</Link>
-              <Link className='btn btn-outline-light App-link' to={'/account/register'}>Sign in</Link>
-            </nav>
-          </header> */}
           <Route exact={true} path={'/'} component={Home} />
           <Route exact={true} path={'/profile'} render={() => (<h1>This is Profile Page</h1>)} />
           <Route exact={true} path={'/profile/:id'} render={({ match }) => (<h1>This is Profile Page of {match.params.id} </h1>)} />
@@ -53,14 +43,18 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  test: state.isTestPass
+  test: state.isTestPass,
+  history: state.historyData
 });
 const mapDispatchToProps = dispatch => ({
-  runTest: (mess) => { dispatch(runTestAction(mess)) }
+  runTest: (mess) => { dispatch(runTestAction(mess)) },
+  addHistory: (history) => { dispatch(addHistory(history)) }
 });
 
 App.propTypes = {
-  runTest: PropTypes.func
+  runTest: PropTypes.func,
+  addHistory: PropTypes.func,
+  history: PropTypes.object,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
