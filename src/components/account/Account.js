@@ -9,6 +9,7 @@ import logo from '../logo.jpg';
 
 //Import components
 import Register from '../register/Register';
+import Login from '../login/Login';
 import Langselect from '../langselect/Langselect';
 import Profile from '../profile/Profile';
 
@@ -35,6 +36,7 @@ class Account extends Component {
         </header>
         <Route exact={true} path={"/account"} component={Profile} />
         <Route exact={true} path={"/account/register"} component={Register} />
+        <Route exact={true} path={"/account/login"} component={Login} />
         <footer className="Account-footer">
           <div className="Account-footer-container">
             <div className="Account-footer-copyright">
