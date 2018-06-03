@@ -15,12 +15,38 @@ import Quote from '../quote/Quote';
 import Benefits from '../benefits/Benefits';
 
 class Home extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      quote: false,
+      benefits: false,
+    }
+    window.onscroll = () => {
+      this.setState({ scrollY: window.scrollY });
+      const header = document.getElementById('home-header');
+      if (window.scrollY > 0) {
+        header.classList.add("fixed");
+      } else if (window.scrollY === 0 && header.classList.contains("fixed")) {
+        header.classList.remove("fixed");
+      }
+      const quote = document.getElementById("Quote");
+      if ((window.innerHeight - quote.getBoundingClientRect().top > -1) && quote) {
+        this.setState({ quote: true });
+      } else {
+        this.setState({ quote: false });
+      }
+      const benefits = document.getElementById("Benefits");
+      if ((window.innerHeight - benefits.getBoundingClientRect().top > -1) && benefits) {
+        this.setState({ benefits: true });
+      } else {
+        this.setState({ benefits: false });
+      }
+    }
   }
   render() {
     return (
       <div>
-        <header className="Home-header">
+        <header id="home-header" className="Home-header">
           <nav className="Home-navbar">
             <div className="Home-brand">
               <img src={logo} className="Home-logo" alt="logo" />
@@ -38,8 +64,24 @@ class Home extends Component {
         </header>
         <Firsthome />
         <Ourpages />
-        <Quote />
-        <Benefits />
+        <div id="Quote">
+          {(() => {
+            if (this.state.quote) {
+              return <Quote />
+            } else {
+              return null;
+            }
+          })()}
+        </div>
+        <div id="Benefits">
+          {(() => {
+            if (this.state.benefits) {
+              return <Benefits />
+            } else {
+              return null;
+            }
+          })()}
+        </div>
       </div>
     );
   }
