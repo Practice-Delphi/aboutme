@@ -12,6 +12,7 @@ import Langselect from '../langselect/Langselect';
 import Firsthome from '../firsthome/Firsthome';
 import Ourpages from '../ourpages/Ourpages';
 import Quote from '../quote/Quote';
+import Benefits from '../benefits/Benefits';
 
 class Home extends Component {
   componentDidMount() {
@@ -38,6 +39,7 @@ class Home extends Component {
         <Firsthome />
         <Ourpages />
         <Quote />
+        <Benefits />
       </div>
     );
   }
