@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import './Home.css';
+import './Account.css';
 
 // connect component to redux
 import { connect } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import logo from '../logo.jpg';
-import Langselect from '../langselect/Langselect';
 
 //Import components
-import Firsthome from '../firsthome/Firsthome';
-import Ourpages from '../ourpages/Ourpages';
-import Quote from '../quote/Quote';
+import Register from '../register/Register';
+import Langselect from '../langselect/Langselect';
+import Profile from '../profile/Profile';
 
-class Home extends Component {
+
+class Account extends Component {
   componentDidMount() {
   }
   render() {
@@ -25,19 +25,13 @@ class Home extends Component {
               <img src={logo} className="Home-logo" alt="logo" />
               <h1 className="Home-title">Site Title</h1>
             </div>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link1</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link2</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link3</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link4</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link5</Link>
             <Langselect />
             <Link className='btn btn-outline-light Home-link' to={'/registration'}>Log in</Link>
             <Link className='btn btn-outline-light Home-link' to={'/account/register'}>Sign in</Link>
           </nav>
         </header>
-        <Firsthome />
-        <Ourpages />
-        <Quote />
+        <Route exact={true} path={"/account"} component={Profile}/>
+        <Route exact={true} path={"/account/register"} component={Register}/>
       </div>
     );
   }
@@ -50,4 +44,4 @@ const mapDispatchToProps = dispatch => ({
   // some action creators
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Account);
