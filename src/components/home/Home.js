@@ -13,6 +13,9 @@ import Firsthome from '../firsthome/Firsthome';
 import Ourpages from '../ourpages/Ourpages';
 import Quote from '../quote/Quote';
 import Benefits from '../benefits/Benefits';
+import Usecases from '../usecases/Usecases';
+import Capabilities from '../capabilities/Capabilities';
+
 
 class Home extends Component {
   constructor(props) {
@@ -85,6 +88,9 @@ class Home extends Component {
             }
           })()}
         </div>
+        <Benefits />
+        <Usecases />
+        <Capabilities />  
       </div>
     );
   }

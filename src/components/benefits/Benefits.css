@@ -3,6 +3,13 @@
     flex-flow: row wrap;
     padding-top: 60px;
 }
+.form{
+    max-width: 1110px;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
 .topic {
     width: 50%;
     padding-right: 40px;
