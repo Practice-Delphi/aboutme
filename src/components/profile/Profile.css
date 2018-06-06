@@ -191,6 +191,63 @@
     border-bottom: 1px solid rgb(230, 230, 230);
 }
 
+.Profile-input {
+    width: 100%;
+    min-width: 100%;
+    color: rgb(128, 128, 128);
+    font-family: sans-serif;
+    margin-bottom: 1.4rem;
+    padding: 0.7rem;
+    border: 1px solid rgb(217, 217, 217);
+    border-image: initial;
+}
+
+.settings {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.Profile-settings-nav {
+    margin-right: 25px;
+}
+
+.Profile-settings-main {
+    flex: 0 0 60%;
+}
+
+.Profile-settings-nav-button {
+    cursor: pointer;
+    font-size: 20px;
+    padding-left: 9px;
+    margin-bottom: 12px;
+}
+
+.Profile-settings-nav-button:hover {
+    opacity: 0.7;
+}
+
+.Profile-form {
+    margin-top: 25px;
+    width: fit-content;
+}
+
+.set-active {
+    padding-left: 5px;
+    border-left: 4px solid rgb(28, 144, 243);
+    font-weight: bold;
+    color: rgb(28, 144, 243);
+}
+
+.Profile-alert {
+    color: red;
+    margin: 10px 0px;
+}
+
+.Profile-success {
+    color: rgb(28, 144, 243);
+    margin: 10px 0px;
+}
+
 @keyframes button-animation {
     0% {
         background-position: 0px 0px;
@@ -210,5 +267,8 @@
     }
     .pather {
         flex-flow: column nowrap;
+    }
+    .Profile-settings-main {
+        flex: 0 0 100%;
     }
 }
